@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "25d08add-a38a-4015-808b-75f5c3fd5560",
+		"name": "Spring + Firebase Cloud Messaging",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7943163"
+	},
+	"item": [
+		{
+			"name": "Trigger sample notification",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/notification",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notification"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test private endpoint",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImE5NmFkY2U5OTk5YmJmNWNkMzBmMjlmNDljZDM3ZjRjNWU2NDI3NDAiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vc3ByaW5nLXNlY3VyaXR5LTkwYzEzIiwiYXVkIjoic3ByaW5nLXNlY3VyaXR5LTkwYzEzIiwiYXV0aF90aW1lIjoxNjY5OTA5ODE5LCJ1c2VyX2lkIjoibEFmZFRPT3RTOVp0TGFUVWxWRWpQZXVhaURiMiIsInN1YiI6ImxBZmRUT090UzladExhVFVsVkVqUGV1YWlEYjIiLCJpYXQiOjE2Njk5MDk4MTksImV4cCI6MTY2OTkxMzQxOSwiZW1haWwiOiJ5b2VtYW5AbWFuLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJ5b2VtYW5AbWFuLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.NPOkOqvE-Toq1E6lsvKomw74YzRN9iJtKMdd5sUHJeWA6IiUfkwhI5vqavXPrs8yRew8f1mc73SbrCW7nGqyAIF0TmnLeXmXv6eEjxZLIimPBv0Oqh90LUFo1IXD09U3u1iS22SWX2mqSvrf1h4PVbYx_bVxCzqxaoY1cTcI2sqchbdzOuvGRTqVzNS3AbH_2Lni41D7UyprP-3xV_60mkMGPt_ELpE397UHayts5F-VSxyLpJUGa6NkVVTHCyio6DDEEwMu7beq0-750e4hoexDuupUG0jF5qHi-mg_7HEG4zE5ftanf14FTNEPhVtv2aa_i4yK_B2s3oQvnNM7Zg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nom\": \"string\",\r\n  \"username\": \"hello\",\r\n  \"prenoms\": \"string\",\r\n  \"telephone\": \"string\",\r\n  \"email\": \"string@mail.com\",\r\n  \"fonction\": \"client\",\r\n  \"password\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/private/user-details",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"private",
+						"user-details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Message specific topic",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Hello\",\r\n  \"message\": \"How are you doing\",\r\n  \"topic\": \"contactTopic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/notification/topic",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notification",
+						"topic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Subscribe to topic",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"subscriber\": \"eQZCM_FqkMo8zNA7roaRbq:APA91bEcLUZ_2SlLXuPY2cez_XawY-hGxpzwqiEtOw4teUyP5HWu8uL_poY2G57l9Nnwf339Wtu4kuuijwAvcidwswpW8ud1Uln_je2_q2bwTMnpVdKEW_B42tmyT0PTpKyP0NkTHNIB\",\r\n  \"topic\": \"contactTopic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/notification/subscribe",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notification",
+						"subscribe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Message specific device",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Hello\",\r\n  \"message\": \"How are you doing\",\r\n  \"token\":\"eQZCM_FqkMo8zNA7roaRbq:APA91bEcLUZ_2SlLXuPY2cez_XawY-hGxpzwqiEtOw4teUyP5HWu8uL_poY2G57l9Nnwf339Wtu4kuuijwAvcidwswpW8ud1Uln_je2_q2bwTMnpVdKEW_B42tmyT0PTpKyP0NkTHNIB\",\r\n  \"topic\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/notification/token",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notification",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Message topic with additional payload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Hello\",\r\n  \"message\": \"Payload\",\r\n  \"topic\": \"contactTopic\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/notification/data",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"notification",
+						"data"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base",
+			"value": "https://system-weber.herokuapp.com/api",
+			"type": "string"
+		}
+	]
+}
